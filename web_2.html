@@ -4,7 +4,20 @@
 <!-- 	 <script>  window['optimizely'] = window['optimizely'] || [];
 window.optimizely.push(['visitorId', 'the_visitor_id_123']); 
 </script> -->
-    <script> window.optimizely.visitorId = "the_visitor_id_123"</script>
+  <script>
+    // Gán visitorId vào window
+    window.visitorId = "the_visitor_id_123";
+
+    // Kiểm tra Optimizely đã tải xong chưa và gán visitorId
+    window.optimizely = window.optimizely || [];
+    window.optimizely.push({
+        type: "user",
+        attributes: {
+            visitorId: window.visitorId
+        }
+    });
+</script>
+
     <meta charset='utf-8'>
     <meta content='IE=edge' http-equiv='X-UA-Compatible'>
     <meta content='width=device-width, initial-scale=1' name='viewport'>
